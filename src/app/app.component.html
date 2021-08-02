@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <td>
+      <a routerLink="public-page">PUBLIC Page</a>
+    </td>
+    <td>
+      <a routerLink="restricted-page" *ngIf="isLoggedIn()" >RESTRICTED Page</a>
+    </td>
+    <td><button (click) ="login()" *ngIf="!isLoggedIn()">SIGN IN</button></td>
+    <td><button (click) ="logout()" *ngIf="isLoggedIn()">SIGN OUT</button></td>
+  </tr>
+</table>
+<div *ngIf="isLoggedIn()">
+  <h3> You are logged In</h3>
+</div>
+<div *ngIf="!isLoggedIn()">
+  <h3> You are NOT logged In</h3>
+</div>
+
+
+<router-outlet></router-outlet>
